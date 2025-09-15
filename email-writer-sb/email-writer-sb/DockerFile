@@ -1,0 +1,11 @@
+# Use OpenJDK as base image
+FROM openjdk:17-jdk-slim
+
+# Set working dir
+WORKDIR /app
+
+# Copy jar file (built using mvnw)
+COPY target/*.jar app.jar
+
+# Run the jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
