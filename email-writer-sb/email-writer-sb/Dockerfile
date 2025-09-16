@@ -13,7 +13,7 @@ RUN chmod +x ./mvnw
 RUN ./mvnw dependency:go-offline
 
 # Copy source code
-COPY ./src
+COPY src ./src
 
 # Build application
 RUN ./mvnw clean package -DskipTests
@@ -22,4 +22,4 @@ RUN ./mvnw clean package -DskipTests
 EXPOSE 8080
 
 # Run application
-CMD ["java", "-jar", "target/*.jar"]
+CMD ["sh", "-c", "java -jar target/*.jar"]
