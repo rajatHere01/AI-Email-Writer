@@ -13,7 +13,7 @@ RUN chmod +x ./mvnw
 RUN ./mvnw dependency:go-offline
 
 # Copy source code
-COPY email-writer-sb/email-writer-sb/src ./src
+COPY ./src
 
 # Build application
 RUN ./mvnw clean package -DskipTests
