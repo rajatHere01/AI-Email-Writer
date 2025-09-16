@@ -25,7 +25,7 @@ function App() {
   const handleSubmit = async () => {
     setloading(true);
     try {
-      const res = await axios.post("http://localhost:8080/api/email/generate", {
+      const res = await axios.post("https://ai-email-writer-4.onrender.com/api/email/generate", {
         emailContent,
         tone,
       });
