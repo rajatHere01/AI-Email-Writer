@@ -6,11 +6,14 @@ WORKDIR /app
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
 
+# Make mvnw executable
+RUN chmod +x ./mvnw
+
 # Download dependencies
 RUN ./mvnw dependency:go-offline
 
 # Copy source code
-COPY src ./src
+COPY email-writer-sb/email-writer-sb/src ./src
 
 # Build application
 RUN ./mvnw clean package -DskipTests
@@ -18,5 +21,5 @@ RUN ./mvnw clean package -DskipTests
 # Expose port
 EXPOSE 8080
 
-# Run application 
+# Run application
 CMD ["java", "-jar", "target/*.jar"]
