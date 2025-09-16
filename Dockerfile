@@ -18,5 +18,5 @@ RUN ./mvnw clean package -DskipTests
 # Expose port
 EXPOSE 8080
 
-# Run application
+# Run application 
 CMD ["java", "-jar", "target/*.jar"]
